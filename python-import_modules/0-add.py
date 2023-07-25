@@ -1,4 +1,4 @@
-import 0-sum from python-functions
+import add_0
 a = 1
 b = 2
-print ("{} + {} = {}".format(a, b, 0-sum.add(a,b)))
+print ("{} + {} = {}".format(a, b, add_0.add(a,b)))
