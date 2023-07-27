@@ -1,3 +1,5 @@
 def square_matrix_simple(matrix=[]):
-    new_matrix = list(map((lambda x: x ** 2), matrix))
+    def square_number(num):
+        return num**2
+    new_matrix = list(map(square_number, matrix))
     return new_matrix
