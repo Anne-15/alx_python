@@ -1,13 +1,25 @@
 """
 Represents a class of integer validator.
+
+Attributes:
+        name (string): The name of the attribute.
+        value: to be validated
 """
 class BaseGeometry:
     """
     Represents a class
+
+    Attributes:
+        name (string): The name of the attribute.
+        value: to be validated
     """
     def area(self):
         """
         Represents a function with an exception
+
+        Attributes:
+        name (string): The name of the attribute.
+        value: to be validated
         """
         raise Exception("area() is not implemented")
     def integer_validator(self, name, value):
