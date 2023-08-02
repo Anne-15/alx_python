@@ -48,5 +48,5 @@ class Rectangle(BaseGeometry):
         self.__width = width
         self.__height = height
 
-        BaseGeometry.integer_validator(self, width, value=0)
-        BaseGeometry.integer_validator(self, height, value=0)
+        BaseGeometry.integer_validator(self, width, value="width")
+        BaseGeometry.integer_validator(self, height, value="width")
