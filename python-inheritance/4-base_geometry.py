@@ -1,5 +1,5 @@
 """
-Represents a class.
+Represents a class of integer validator.
 """
 class BaseGeometry:
     """
@@ -13,6 +13,10 @@ class BaseGeometry:
     def integer_validator(self, name, value):
         """
         Represents a function that validates a value
+
+        Attributes:
+        name (string): The name of the attribute.
+        value: to be validated
         """
         if isinstance(value, int):
             raise TypeError("{} must be an integer".format(name))
