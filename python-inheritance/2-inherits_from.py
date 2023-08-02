@@ -2,15 +2,9 @@
 Represents a function that checks subclass.
 
 """
-
-def inherits_from(obj, a_class):
-
+def is_kind_of_class(obj, a_class):
     """
     Represents a function that checks subclass.
 
     """
-
-    if issubclass(obj, a_class):
-        return True
-    else:
-        return False
+    return isinstance(obj, a_class)
