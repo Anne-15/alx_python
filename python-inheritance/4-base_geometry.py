@@ -1,34 +1,30 @@
 """
-Represents a class of integer validator.
+Represents a square with a given size.
 
 Attributes:
-        name (string): The name of the attribute.
-        value: to be validated
+    __size (int): The size of the square (private).
 """
 class BaseGeometry:
     """
-    Represents a class
+    Represents a square with a given size.
 
     Attributes:
-        name (string): The name of the attribute.
-        value: to be validated
+        __size (int): The size of the square (private).
     """
     def area(self):
         """
-        Represents a function with an exception
+        Represents a square with a given size.
 
         Attributes:
-        name (string): The name of the attribute.
-        value: to be validated
+            __size (int): The size of the square (private).
         """
         raise Exception("area() is not implemented")
     def integer_validator(self, name, value):
         """
-        Represents a function that validates a value
+        Represents a square with a given size.
 
         Attributes:
-        name (string): The name of the attribute.
-        value: to be validated
+            __size (int): The size of the square (private).
         """
         if isinstance(value, int):
             raise TypeError("{} must be an integer".format(name))
