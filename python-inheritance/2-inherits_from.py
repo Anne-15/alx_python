@@ -7,4 +7,7 @@ def inherits_from(obj, a_class):
     Represents a function that checks subclass.
 
     """
-    return isinstance(obj, a_class)
+    if isinstance(obj, a_class):
+        return True
+    else:
+        return False
