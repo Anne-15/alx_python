@@ -32,7 +32,7 @@ class BaseGeometry(metaclass=BaseGeometryMeta):
         new_attributes = [item for item in attributes if item != "__init_subclass__"]
         return new_attributes
     
-    def area(self, width, height):
+    def area(width, height):
         """
         Represents a square with a given size.
 
