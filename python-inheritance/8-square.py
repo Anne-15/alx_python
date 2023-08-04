@@ -87,7 +87,7 @@ class Rectangle(BaseGeometry):
             """
             return self.__width * self.__height
         
-class Square(BaseGeometry):
+class Square(Rectangle):
     """
     Represents a square with a given size.
 
