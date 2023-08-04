@@ -76,8 +76,31 @@ class Rectangle(BaseGeometry):
         # BaseGeometry.integer_validator("height", height)
 
         def __str__(self):
+            """
+            RString method
+            """
             return ("[Rectangle] {}/{}".format(self.__width, self.__height))
 
         def area(self):
+            """
+            area of the rectangle
+            """
             return self.__width * self.__height
+        
+class Square(BaseGeometry):
+    """
+    Represents a square with a given size.
+
+    Attributes:
+        __size (int): The size of the square (private).
+    """
+    def __init__(self, size):
+        """
+        Represents a square with a given size.
+
+        Attributes:
+            __size (int): The size of the square (private).
+        """
+        self.__size = super().integer_validator("size", size)
+        super().__init__(size, size)
         
