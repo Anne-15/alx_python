@@ -48,7 +48,7 @@ class BaseGeometry(metaclass=BaseGeometryMeta):
         Attributes:
             __size (int): The size of the square (private).
         """
-        if value is not int:
+        if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
         elif value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
