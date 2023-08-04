@@ -32,14 +32,14 @@ class BaseGeometry(metaclass=BaseGeometryMeta):
         new_attributes = [item for item in attributes if item != "__init_subclass__"]
         return new_attributes
     
-    def area(self):
+    def area(self, width, height):
         """
         Represents a square with a given size.
 
         Attributes:
             __size (int): The size of the square (private).
         """
-        raise Exception("area() is not implemented")
+        return width * height
     
     def integer_validator(self, name, value):
         """
@@ -72,14 +72,10 @@ class Rectangle(BaseGeometry):
         self.__width = super().integer_validator("width", width)
         self.__height = super().integer_validator("height", height)
 
-        # BaseGeometry.integer_validator("width", width)
-        # BaseGeometry.integer_validator("height", height)
-
         def __str__(self):
             return ("[Rectangle] {}/{}".format(self.__width, self.__height))
 
-        def area(self):
-            return self.__width * self.__height
+        super().area(self.__width, self.__height)
 
         
         
