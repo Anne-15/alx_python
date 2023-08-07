@@ -160,3 +160,19 @@ class Rectangle(Base):
                     self.x = value
                 elif key == "y":
                     self.y = value
+
+class Square(Rectangle):
+    """
+    Represents a square class that inherits from rectangle class
+
+    """
+    def __init__(self, size, x=0, y=0, id=None):
+        """
+        Represents a function of the square class
+
+        """
+        Rectangle.__init__(x, y, id)
+        self.size = size
+
+    def __str__(self):
+        return ("[Square] ({}) {}/{} - {}".format(self.x, self.y, self.size))
