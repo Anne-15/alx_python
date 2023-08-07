@@ -33,16 +33,16 @@ class Rectangle(Base):
         super().__init__(id)
 
         if width is not int:
-            raise TypeError("width must be an integer")
+            raise TypeError("{} must be an integer".format(width))
         elif width <= 0:
-            raise ValueError("width must be > 0")
+            raise ValueError("{} must be > 0".format(width))
         else:
             self.__width = width
         
         if height is not int:
-            raise TypeError("height must be an integer")
+            raise TypeError("{} must be an integer".format(height))
         elif height <= 0:
-            raise ValueError("height must be > 0")
+            raise ValueError("{} must be > 0".format(height))
         else:
             self.__height = height
 
