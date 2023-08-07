@@ -171,7 +171,7 @@ class Square(Rectangle):
         Represents a function of the square class
 
         """
-        Rectangle.__init__(size, size, x, y, id)
+        super().__init__(size, size, x, y, id)
         self.size = size
 
     def __str__(self):
