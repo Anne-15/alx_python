@@ -124,5 +124,5 @@ class Rectangle(Base):
         Represents a function that prints the rectangle in #
 
         """
-        for _ in self.__height:
+        for _ in range(self.__height):
             print("#" * self.__width)
