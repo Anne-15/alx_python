@@ -32,28 +32,28 @@ class Rectangle(Base):
         """
         super().__init__(id)
 
-        if width is not int:
-            raise TypeError("{} must be an integer".format(width))
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
         elif width <= 0:
-            raise ValueError("{} must be > 0".format(width))
+            raise ValueError("width must be > 0")
         else:
             self.__width = width
         
-        if height is not int:
-            raise TypeError("{} must be an integer".format(height))
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
         elif height <= 0:
-            raise ValueError("{} must be > 0".format(height))
+            raise ValueError("height must be > 0")
         else:
             self.__height = height
 
-        if x is not int:
+        if not isinstance(x, int):
             raise TypeError("x must be an integer")
         elif x < 0:
             raise ValueError("x must be >= 0")
         else:
             self.__x = x
 
-        if y is not int:
+        if not isinstance(y, int):
             raise TypeError("y must be an integer")
         elif y < 0:
             raise ValueError("y must be >= 0")
