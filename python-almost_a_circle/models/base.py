@@ -3,6 +3,10 @@ Represents a base class
 
 """
 class Base:
+    """
+    Represents a base class
+
+    """
     __nb_object = 0
     def __init__(self, id=None):
         """
