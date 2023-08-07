@@ -137,5 +137,5 @@ class Rectangle(Base):
         Represents a function that updates the arguments
 
         """
-        for _ in args:
-            print ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height))
+        for arg in args:
+            print (arg)
