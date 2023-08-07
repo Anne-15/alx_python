@@ -173,6 +173,7 @@ class Square(Rectangle):
         """
         Rectangle.__init__(x, y, id)
         self.size = size
+        size = Rectangle.width + Rectangle.height
 
     def __str__(self):
         return ("[Square] ({}) {}/{} - {}".format(self.x, self.y, self.size))
