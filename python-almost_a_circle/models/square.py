@@ -2,7 +2,7 @@
 Represents an import class
 
 """
-from rectangle import Rectangle
+from models.rectangle import Rectangle
 
 """
 Represents a base class
