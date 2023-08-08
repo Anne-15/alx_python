@@ -1,5 +1,8 @@
-from base import Base
+"""
+Represents an import class
 
+"""
+from base import Base
 """
 Represents a base class
 
