@@ -1,7 +1,3 @@
-"""
-Represents an import class
-
-"""
 from base import Base
 
 """
