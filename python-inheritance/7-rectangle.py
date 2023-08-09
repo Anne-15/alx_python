@@ -5,34 +5,30 @@ Attributes:
     __size (int): The size of the square (private).
 """
 class BaseGeometryMeta(type):
-    """
-    Represents a class
-    """
     def __dir__(self):
         """
-        Get a list of attributes for this class and exclude
-        the __init_superclass
+        Represents a square with a given size.
 
+        Attributes:
+            __size (int): The size of the square (private).
         """
         attributes = super().__dir__()
         new_attributes = [item for item in attributes if item != "__init_subclass__"]
         return new_attributes
 
 class BaseGeometry(metaclass=BaseGeometryMeta):
-    """
-    Represents a class
-    """
     def __dir__(self):
         """
-        Get a list of attributes for this class and exclude
-        the __init_superclass
+        Represents a square with a given size.
 
+        Attributes:
+            __size (int): The size of the square (private).
         """
         attributes = super().__dir__()
         new_attributes = [item for item in attributes if item != "__init_subclass__"]
         return new_attributes
     
-    def area(width, height):
+    def area(self, width, height):
         """
         Represents a square with a given size.
 
@@ -72,12 +68,22 @@ class Rectangle(BaseGeometry):
         self.__width = super().integer_validator("width", width)
         self.__height = super().integer_validator("height", height)
 
-        def area(self):
-            r = super().area(self.__width * self._height)
-            return r
-        
-        def __str__(self):
-            return ("[Rectangle] {}/{}".format(self.__width, self.__height))
+    def area(self):
+        """
+        Represents a square with a given size.
 
-        
+        Attributes:
+            __size (int): The size of the square (private).
+        """
+        return self.__width * self.__height
+
+    def __str__(self):
+        """
+        Represents a square with a given size.
+
+        Attributes:
+            __size (int): The size of the square (private).
+        """
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
+
         
