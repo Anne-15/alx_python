@@ -6,8 +6,8 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    url = "http://0.0.0.0:5050"
-    # email = "test@test.com"
-    payload = {"email":"test@test.com"}
+    url = sys.argv[1]
+    email = sys.argv[2]
+    payload = {'email': email}
     request = requests.post(url, data=payload)
     print("Your email is: {}".format(request.text))
