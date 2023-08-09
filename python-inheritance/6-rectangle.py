@@ -69,8 +69,5 @@ class Rectangle(BaseGeometry):
         Attributes:
             __size (int): The size of the square (private).
         """
-        self.__width = super().integer_validator(self, "width", width)
-        self.__height = super().integer_validator(self, "height", height)
-
-        # BaseGeometry.integer_validator("width", width)
-        # BaseGeometry.integer_validator("height", height)
+        self.__width = super().integer_validator("width", width)
+        self.__height = super().integer_validator("height", height)
