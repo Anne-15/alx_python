@@ -5,34 +5,30 @@ Attributes:
     __size (int): The size of the square (private).
 """
 class BaseGeometryMeta(type):
-    """
-    Represents a class
-    """
     def __dir__(self):
         """
-        Get a list of attributes for this class and exclude
-        the __init_superclass
+        Represents a square with a given size.
 
+        Attributes:
+            __size (int): The size of the square (private).
         """
         attributes = super().__dir__()
         new_attributes = [item for item in attributes if item != "__init_subclass__"]
         return new_attributes
 
 class BaseGeometry(metaclass=BaseGeometryMeta):
-    """
-    Represents a class
-    """
     def __dir__(self):
         """
-        Get a list of attributes for this class and exclude
-        the __init_superclass
+        Represents a square with a given size.
 
+        Attributes:
+            __size (int): The size of the square (private).
         """
         attributes = super().__dir__()
         new_attributes = [item for item in attributes if item != "__init_subclass__"]
         return new_attributes
     
-    def area(self):
+    def area(self, width, height):
         """
         Represents a square with a given size.
 
@@ -72,20 +68,23 @@ class Rectangle(BaseGeometry):
         self.__width = super().integer_validator("width", width)
         self.__height = super().integer_validator("height", height)
 
-        # BaseGeometry.integer_validator("width", width)
-        # BaseGeometry.integer_validator("height", height)
+    def area(self):
+        """
+        Represents a square with a given size.
 
-        def __str__(self):
-            """
-            RString method
-            """
-            return ("[Rectangle] {}/{}".format(self.__width, self.__height))
+        Attributes:
+            __size (int): The size of the square (private).
+        """
+        return self.__width * self.__height
 
-        def area(self):
-            """
-            area of the rectangle
-            """
-            return self.__width * self.__height
+    def __str__(self):
+        """
+        Represents a square with a given size.
+
+        Attributes:
+            __size (int): The size of the square (private).
+        """
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
         
 class Square(Rectangle):
     """
@@ -102,5 +101,13 @@ class Square(Rectangle):
             __size (int): The size of the square (private).
         """
         self.__size = super().integer_validator("size", size)
-        super().__init__(size, size)
+        # super().__init__(size, size)
+    def area(self):
+        """
+        Represents a square with a given size.
+
+        Attributes:
+            __size (int): The size of the square (private).
+        """
+        return self.__size ** 2
         
