@@ -4,6 +4,8 @@ Represents a square with a given size.
 Attributes:
     __size (int): The size of the square (private).
 """
+
+
 class BaseGeometryMeta(type):
     def __dir__(self):
         """
@@ -15,6 +17,7 @@ class BaseGeometryMeta(type):
         attributes = super().__dir__()
         new_attributes = [item for item in attributes if item != "__init_subclass__"]
         return new_attributes
+    
 
 class BaseGeometry(metaclass=BaseGeometryMeta):
     def __dir__(self):
@@ -28,6 +31,7 @@ class BaseGeometry(metaclass=BaseGeometryMeta):
         new_attributes = [item for item in attributes if item != "__init_subclass__"]
         return new_attributes
     
+    
     def area(self, width, height):
         """
         Represents a square with a given size.
@@ -36,6 +40,7 @@ class BaseGeometry(metaclass=BaseGeometryMeta):
             __size (int): The size of the square (private).
         """
         raise Exception("area() is not implemented")
+    
     
     def integer_validator(self, name, value):
         """
@@ -50,7 +55,8 @@ class BaseGeometry(metaclass=BaseGeometryMeta):
             raise ValueError("{} must be greater than 0".format(name))
         else:
             return value
-        
+
+
 class Rectangle(BaseGeometry):
     """
     Represents a square with a given size.
@@ -85,6 +91,7 @@ class Rectangle(BaseGeometry):
             __size (int): The size of the square (private).
         """
         return "[Rectangle] {}/{}".format(self.__width, self.__height)
+        
         
 class Square(Rectangle):
     """
