@@ -11,4 +11,3 @@ if __name__ == "__main__":
     payload = {'email': email}
     request = requests.post(url, data=payload)
     print("Email: {}".format(request.text))
-    print(len(sys.argv))
