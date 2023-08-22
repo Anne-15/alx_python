@@ -5,20 +5,24 @@ Importing MYSQLdb
 import MySQLdb
 import sys
 
-username = sys.argv[1]
-password = sys.argv[2]
-database = sys.argv[3]
+if __name__ == "__main__":
 
-db = MySQLdb.connect(
-    host='localhost',
-    user=username, 
-    password=password, 
-    database=database, 
-    port=3306
-    ),
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
 
-cur = db.cursor(),
-cur.execute(""" SELECT * FROM states ORDER BY id""") 
-states = cur.fetchall()
-cur.close()
-db.close()
+    db = MySQLdb.connect(
+        host='localhost',
+        user=username, 
+        password=password, 
+        database=database, 
+        port=3306
+        ),
+
+    cur = db.connect(),
+    cur.que(""" SELECT * FROM states ORDER BY id""") 
+    states = cur.fetchall()
+    for state in states:
+        print(states)
+    cur.close()
+    db.close()
