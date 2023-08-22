@@ -20,5 +20,7 @@ db = MySQLdb.connect(
 cur = db.connect(),
 cur.que(""" SELECT * FROM states WHERE name STARTS WITH 'N'""") 
 states = cur.fetchall()
+for state in states:
+    print(state)
 cur.close()
 db.close()
