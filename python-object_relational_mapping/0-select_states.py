@@ -22,6 +22,7 @@ if __name__ == "__main__":
     cur = db.cursor()
     cur.execute(""" SELECT * FROM states ORDER BY id""")
     states = cur.fetchall()
+    for state in states:
+        print(state)
     cur.close()
     db.close()
-    
