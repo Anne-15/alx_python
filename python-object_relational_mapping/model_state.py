@@ -1,31 +1,23 @@
+#!/usr/bin/python3
 """
-Represents the use of sqlalchemy orm.
+Module containing the State class definition and Base instance
+"""
 
-"""
+from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
-"""
-Represents a square with a given size.
-
-Attributes:
-    __size (int): The size of the square (private).
-"""
+from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
-"""
-Represents a square with a given size.
-
-Attributes:
-    __size (int): The size of the square (private).
-"""
-class States(Base):
+class State(Base):
     """
-    Represents a square with a given size.
-
-    Attributes:
-        __size (int): The size of the square (private).
+    Represents a State class that inherits from Base
     """
     __tablename__ = 'states'
-    id = Column(Integer, primary_key=True)
-    name = String(128)
+    id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
+    name = Column(String(128), nullable=False)
+
+if __name__ == "__main__":
+    engine = create_engine("mysql+mysqldb://username:password@localhost:3306/dbname")
+    Session = sessionmaker(bind=engine)
+    Base.metadata.create_all(engine)
