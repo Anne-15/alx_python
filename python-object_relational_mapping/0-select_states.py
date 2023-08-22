@@ -2,7 +2,7 @@
 Importing MYSQLdb
 """
 
-import MySQLdb
+import pymysql as MySQLdb
 import sys
 
 if __name__ == "__main__":
