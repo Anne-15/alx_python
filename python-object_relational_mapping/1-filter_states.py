@@ -17,8 +17,8 @@ db = MySQLdb.connect(
     port=3306
     ),
 
-cur = db.connect(),
-cur.que(""" SELECT * FROM states WHERE name STARTS WITH 'N'""") 
+cur = db.cursor(),
+cur.execute(""" SELECT * FROM states WHERE name STARTS WITH 'N'""") 
 states = cur.fetchall()
 for state in states:
     print(state)
