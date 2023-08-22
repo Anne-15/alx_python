@@ -18,7 +18,9 @@ db = MySQLdb.connect(
     )
 
 cur = db.cursor()
-query = "SELECT cities.id, cities.name, states.name FROM cities, states WHERE cities.state_id = states.id ORDER BY cities.id"
+query = "SELECT cities.id, cities.name, states.name \
+                    FROM cities, states WHERE cities.state_id = states.id \
+                    ORDER BY cities.id"
 cur.execute(query)
 states = cur.fetchall()
 for state in states:
