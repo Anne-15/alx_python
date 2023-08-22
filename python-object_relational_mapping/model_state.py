@@ -4,6 +4,13 @@ Represents the use of sqlalchemy orm.
 """
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
+"""
+Represents a square with a given size.
+
+Attributes:
+    __size (int): The size of the square (private).
+"""
+
 Base = declarative_base()
 
 """
