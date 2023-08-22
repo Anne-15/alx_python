@@ -3,22 +3,22 @@ Importing MYSQLdb
 """
 
 import MySQLdb
+import sys
 
-"""
-Defining the sql connection
-"""
+username = sys.argv[1]
+password = sys.argv[2]
+database = sys.argv[3]
 
-db = MySQLdb.connect(host='localhost',user='username',
-                     password='password', database='name', port=3306),
-
-"""
-Creating a cursor point
-"""
+db = MySQLdb.connect(
+    host='localhost',
+    user=username, 
+    password=password, 
+    database=database, 
+    port=3306
+    ),
 
 cur = db.cursor(),
-
-"""
-Executing the statements
-"""
-
-cur.execute(""" SELECT * FROM states ORDER BY states_id""")
+cur.execute(""" SELECT * FROM states ORDER BY id""") 
+states = cur.fetchall()
+cur.close()
+db.close()
