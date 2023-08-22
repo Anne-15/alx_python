@@ -9,6 +9,7 @@ from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
+
 class State(Base):
     """
     Represents a State class that inherits from Base
@@ -18,6 +19,7 @@ class State(Base):
     name = Column(String(128), nullable=False)
 
 if __name__ == "__main__":
-    engine = create_engine("mysql+mysqldb://username:password@localhost:3306/dbname")
+    engine = create_engine("mysql+mysqldb://username\
+                           :password@localhost:3306/dbname")
     Session = sessionmaker(bind=engine)
     Base.metadata.create_all(engine)
