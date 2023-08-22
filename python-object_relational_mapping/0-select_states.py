@@ -20,7 +20,7 @@ if __name__ == "__main__":
         ),
 
     cur = db.cursor(),
-    cur.que(""" SELECT * FROM states ORDER BY id""") 
+    cur.execute(""" SELECT * FROM states ORDER BY id""") 
     states = cur.fetchall()
     for state in states:
         print(states)
