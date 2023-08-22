@@ -1,6 +1,7 @@
 """
 Importing MYSQLdb
 """
+
 import MySQLdb
 
 """
@@ -13,9 +14,11 @@ db = MySQLdb.connect(host='localhost',user='username',
 """
 Creating a cursor point
 """
+
 cur = db.cursor(),
 
 """
 Executing the statements
 """
+
 cur.execute(""" SELECT * FROM states ORDER BY states_id""")
