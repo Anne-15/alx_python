@@ -17,6 +17,7 @@ if __name__ == "__main__":
     engine = create_engine("mysql+mysqldb://username\
                            :password@localhost:3306/dbname")
     Session = sessionmaker(bind=engine)
+    Base.metadata.create_all(engine)
     session = Session(engine)
     stmt = select(State).order_by(State.id)
     for user in session.scalars(stmt):
