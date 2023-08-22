@@ -3,7 +3,7 @@
 Module containing the State class definition and Base instance
 """
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, select
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 import sys
@@ -16,9 +16,11 @@ if __name__ == "__main__":
     engine = create_engine("mysql+mysqldb://{}\
                            :{}@localhost:3306/{}"
                            .format(username, password, database))
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session(engine)
-    states = session.query(State).order_by(State.id).all()
+    states = select(State).order_by(State.id)
     for state in states:
         print("{}: {}".format(state.id, state.name))
+    session.connect()
     session.close()
