@@ -19,7 +19,7 @@ if __name__ == "__main__":
         port=3306
         ),
 
-    cur = db.connect(),
+    cur = db.cursor(),
     cur.que(""" SELECT * FROM states ORDER BY id""") 
     states = cur.fetchall()
     for state in states:
