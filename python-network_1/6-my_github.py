@@ -6,6 +6,9 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    url = "https://github.com/Anne-15"
-    r = requests.get(url, auth=('user', 'pass'))
-    print(r.text)
+    username = sys.argv[1]
+    password = sys.argv[2]
+    url = "https://github.com/{Anne-15}"
+    "https://api.github.com/authorizations"
+    r = requests.get(url).json()
+    print(r)
