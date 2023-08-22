@@ -18,7 +18,7 @@ db = MySQLdb.connect(
     port=3306
     )
 
-cur = db.cursor(),
+cur = db.cursor()
 cur.execute("""SELECT * FROM states WHERE name='%s ORDER BY id""".format(state_name_searched)) 
 states = cur.fetchall()
 for state in states:
