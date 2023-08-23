@@ -24,7 +24,7 @@ query = "SELECT cities.name FROM cities \
                  WHERE states.name='{}' \
                  ORDER BY cities.id"
 cur.execute(query.format(state_name))
-states = cur.fetchone()
+states = cur.fetch_row()
 for state in states:
     print(state)
 cur.close()
