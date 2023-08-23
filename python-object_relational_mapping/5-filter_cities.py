@@ -24,7 +24,6 @@ cur.execute(""" SELECT cities.name FROM cities \
                  WHERE states.name=%s \
                  ORDER BY cities.id""", (state_name,))
 states = cur.fetchall()
-for state in states:
-    print(state)
+print(', '.join(state[0] for state in states))
 cur.close()
 db.close()
