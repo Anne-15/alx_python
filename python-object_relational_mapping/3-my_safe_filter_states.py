@@ -19,8 +19,7 @@ db = MySQLdb.connect(
     )
 
 cur = db.cursor()
-query = "SELECT * FROM states WHERE name LIKE'{}' ORDER BY id"
-cur.execute(query,(state_name_searched,))
+cur.execute(""" SELECT * FROM states WHERE name=%s ORDER BY id """,(state_name_searched,))
 states = cur.fetchall()
 for state in states:
     print(state)
