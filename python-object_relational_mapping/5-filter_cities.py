@@ -19,7 +19,7 @@ db = MySQLdb.connect(
     )
 
 cur = db.cursor()
-query = "SELECT states.name FROM cities \
+query = "SELECT cities.name FROM cities \
                  JOIN states ON cities.state_id = states.id \
                  WHERE states.name='{}' \
                  ORDER BY cities.id"
