@@ -23,7 +23,7 @@ query = "SELECT states.name FROM cities \
                  JOIN states ON cities.state_id = states.id \
                  WHERE states.name='{}' \
                  ORDER BY cities.id"
-cur.execute(query, (state_name))
+cur.execute(query.format(state_name))
 states = cur.fetchall()
 for state in states:
     print(state)
