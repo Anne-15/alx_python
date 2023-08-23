@@ -20,7 +20,7 @@ db = MySQLdb.connect(
 
 cur = db.cursor()
 query = "SELECT * FROM states WHERE name='{}' ORDER BY id"
-cur.execute(query, (state_name_searched))
+cur.execute(query.format(state_name_searched))
 states = cur.fetchall()
 for state in states:
     print(state)
