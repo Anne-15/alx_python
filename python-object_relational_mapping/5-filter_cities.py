@@ -21,7 +21,7 @@ db = MySQLdb.connect(
 cur = db.cursor()
 query = "SELECT states.name FROM cities \
                  JOIN states ON cities.state_id = states.id \
-                 WHERE states.name LIKE '{}' \
+                 WHERE states.name='{}' \
                  ORDER BY cities.id"
 cur.execute(query, (state_name))
 states = cur.fetchall()
