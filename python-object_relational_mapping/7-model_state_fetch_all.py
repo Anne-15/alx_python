@@ -22,5 +22,5 @@ if __name__ == "__main__":
     session.connect()
     states = select([State]).order_by(State.id)
     for state in states:
-        print("{}: {}".format(state.id, state.name))
+        print("{}: {}".format(State.id, State.name))
     session.close()
