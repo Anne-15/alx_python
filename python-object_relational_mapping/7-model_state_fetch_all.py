@@ -14,16 +14,16 @@ if __name__ == "__main__":
     database = sys.argv[3]
 
     engine = create_engine("mysql+mysqldb://{} \
-                           :{}@localhost:3306/{}" 
+                           :{}@localhost:3306/{}"
                            .format(username, password, database),
                            pool_pre_ping=True)
     
     Base.metadata.create_all(engine)
 
     Session = sessionmaker(bind=engine)
-    session = Session(engine)
+    session = Session()
 
-    states = select([State]).order_by(State.id)
+    states = session.query(State).order_by(State.id).all()
     for state in states:
         print("{}: {}".format(state.id, state.name))
 
