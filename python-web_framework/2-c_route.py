@@ -3,8 +3,6 @@ importing flask and initiating it
 """
 
 from flask import Flask
-from markupsafe import escape
-
 """
 calling the routes
 """
