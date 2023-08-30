@@ -18,8 +18,8 @@ def hello_hbnb():
 def hbnb():
     return "HBNB"
 
-@app.route("/c/<text>", strict_slashes=False)
-def hbnb(text):
+@app.route('/c/<text>', strict_slashes=False)
+def c_text(text):
     return "C {}".format(text.replace("_", " "))
 
 if __name__ == '__main__':
