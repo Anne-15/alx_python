@@ -34,7 +34,11 @@ def number_template(n):
 
 @app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
 def number_odd_or_even(n):
-    return render_template('6-number_odd_or_even.html', n=n)
+    try:
+        odd_or_even = "even" if n % 2 == 0 else "odd"
+        return render_template('6-number_odd_or_even.html', n=n, odd_or_even = odd_or_even)
+    except ValueError:
+        return "Invalid Input: Please provide a valid integer"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
