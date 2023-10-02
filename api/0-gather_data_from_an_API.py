@@ -1,10 +1,10 @@
-#!/usr/bin/python3
 """
 Function to get employee information using the id
 """
 
 import requests
 import sys
+
 if __name__ == '__main__':
     id = sys.argv[1]
     user = f'https://jsonplaceholder.typicode.com/users/{id}'
