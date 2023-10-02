@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Function to get employee information using the id
+"""
 
 import requests
 import sys
