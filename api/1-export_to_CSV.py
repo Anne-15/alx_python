@@ -28,6 +28,6 @@ def user_info(id):
 
 
 if __name__ == '__main__':
-    id = int(sys.argv[1])
+    id = sys.argv[1]
     user_info(id)
 
