@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
+import csv
 import requests
 import sys
-import csv
 
 def user_info(id):
     # get user data
