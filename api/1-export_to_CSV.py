@@ -20,9 +20,10 @@ def user_info(id):
     csv_file = f"{id}.csv"
     with open(csv_file, 'w') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(["USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"])
+        # writer.writerow(["USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"])
         for item in todos:
             writer.writerow([id, users['name'], str(item['completed']), item['title']])
+            # writer.writerow(f"[{id}, {users['name']}, {str(item['completed'])}, {item['title']}]")
     
     print(f"CSV file '{csv_file}' created successfully.")
 
