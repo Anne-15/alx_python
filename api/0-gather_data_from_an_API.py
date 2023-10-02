@@ -6,7 +6,8 @@ Function to get employee information using the id
 import requests
 import sys
 
-def employee_info(id):
+if __name__ == '__main__':
+    id = sys.argv[1]
     # get user data
     user = f'https://jsonplaceholder.typicode.com/users/{id}'
     user_data = requests.get(user)
@@ -28,9 +29,4 @@ def employee_info(id):
     for item in todos:
         if item['completed']:
             print(f"\t{item['title']}")
-
-
-if __name__ == '__main__':
-    id = sys.argv[1]
-    employee_info(id)
 
