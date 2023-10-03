@@ -1,26 +1,37 @@
-"""
-Importing MYSQLdb
-"""
-
+#!/usr/bin/python3
 import MySQLdb
 import sys
 
-username = sys.argv[1]
-password = sys.argv[2]
-database = sys.argv[3]
+if __name__ == "__main__":
+    # Check if the number of arguments is correct
+    if len(sys.argv) != 4:
+        print("Usage: ./script.py <username> <password> <database>")
+        sys.exit(1)
 
-db = MySQLdb.connect(
-    host='localhost',
-    user=username,
-    password=password,
-    database=database,
-    port=3306
-    )
+    # Read MySQL credentials from command line arguments
+    username, password, database = sys.argv[1:4]
 
-cur = db.cursor()
-cur.execute(""" SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id""")
-states = cur.fetchall()
-for state in states:
-    print(state)
-cur.close()
-db.close()
+    # Connect to the MySQL server
+    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+
+    # Create a cursor object to execute queries
+    cursor = db.cursor()
+
+    try:
+        # Execute the SQL query
+        cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id;")
+
+        # Fetch all the rows
+        rows = cursor.fetchall()
+
+        # Display the results
+        for row in rows:
+            print(row)
+
+    except Exception as e:
+        print(f"Error: {e}")
+
+    finally:
+        # Close the cursor and database connection
+        cursor.close()
+        db.close()
