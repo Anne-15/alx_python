@@ -2,45 +2,39 @@
 """
 Function to get employee information using the id
 """
-
 import json
 import requests
 import sys
 
-def employee_info(id):
-    # get user data
-    user = f'https://jsonplaceholder.typicode.com/users/{id}'
-    user_data = requests.get(user)
-    users = user_data.json()
+if __name__ == '__main__':
+    user_id = sys.argv[1]
 
-    # get todos
-    todo = f'https://jsonplaceholder.typicode.com/users/{id}/todos'
-    todo_list = requests.get(todo)
-    todos = todo_list.json()
+    # getting user
+    user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)
+    user = requests.get(user_url)
+    user_data = user.json()
+
+    # getting todos
+    todo_url = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(user_id)
+    todos = requests.get(todo_url)
+    todos_data = todos.json()
+    print(todos_data)
 
     # exporting to a json
-    json_file = f"{id}.json"
+    json_file = "{}.json".format(user_id)
     
     user_info = {
-        f"{id}": [
+        f"{user_id}": [
             {
                 "task": items['title'],
                 "completed": items['completed'],
-                "username": users['name'],
+                "username": user_data['name'],
             }
 
-            for items in todos
+            for items in todos_data
         ]
     }
 
     # write data to json file
-    with open(json_file, 'w', encoding='utf-8') as json_files:
+    with open(json_file, 'w') as json_files:
         json.dump(user_info, json_files, indent=2)
-
-    print(f"JSON file '{json_file}' created successfully.")
-
-
-if __name__ == '__main__':
-    id = sys.argv[1]
-    employee_info(id)
-
