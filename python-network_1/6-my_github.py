@@ -23,4 +23,4 @@ if __name__ == "__main__":
 
     except requests.exceptions.RequestException as e:
         # Handle request exceptions
-        print(f"Error: {e}")
+        print("None")
