@@ -5,7 +5,7 @@ import sys
 if __name__ == "__main__":
     username = sys.argv[1]
     access_token = sys.argv[2]
-    
+
     try:
         # Create a basic authentication string
         auth = (username, access_token)
@@ -17,7 +17,7 @@ if __name__ == "__main__":
         if response.status_code == 200:
             # Display the user ID
             user_id = response.json()["id"]
-            print(f"Your GitHub user ID is: {user_id}")
+            print(f"{user_id}")
         else:
             print(f"Error: {response.status_code}")
 
