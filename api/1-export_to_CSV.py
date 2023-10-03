@@ -1,32 +1,28 @@
 #!/usr/bin/python3
-
+"""
+Exporitng the data from the api requests to csv file
+"""
 import csv
 import requests
 import sys
 
-def user_info(id):
-    # get user data
-    user = f'https://jsonplaceholder.typicode.com/users/{id}'
-    user_data = requests.get(user)
-    users = user_data.json()
+if __name__=="__main__":
+    user_id = sys.argv[1]
 
-    # get todos
-    todo = f'https://jsonplaceholder.typicode.com/users/{id}/todos'
-    todo_list = requests.get(todo)
-    todos = todo_list.json()
-    
+    # getting user
+    user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)
+    user = requests.get(user_url)
+    user_data = user.json()
 
-    # exporting to a csv
-    csv_file = f"{id}.csv"
+    # getting todos
+    todo_url = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(user_id)
+    todos = requests.get(todo_url)
+    todos_data = todos.json()
+
+    # exporting the data to csv
+    csv_file = "{}.csv".format(user_id)
+
     with open(csv_file, 'w') as csvfile:
-        writer = csv.writer(csvfile)
-        for item in todos:
-            writer.writerow([f"{id}", users['name'], str(item['completed']), item['title']])
-    
-    print(f"CSV file '{csv_file}' created successfully.")
-
-
-if __name__ == '__main__':
-    id = sys.argv[1]
-    user_info(id)
-
+        csv_writer = csv.writer(csvfile)
+        for task in todos_data:
+            csv_writer.writerow([user_id, user_data['name'], str(task['completed']),task['title']])
