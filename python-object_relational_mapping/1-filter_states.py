@@ -21,7 +21,7 @@ if __name__ == "__main__":
     try:
         # Execute the SQL query
         cursor.execute("""SELECT * FROM states WHERE name LIKE \
-                        'N%' COLLATE Latin1_General_CS ORDER BY id;""")
+                        'N%' ORDER BY id COLLATE;""")
 
         # Fetch all the rows
         rows = cursor.fetchall()
