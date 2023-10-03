@@ -1,3 +1,11 @@
+#!/usr/bin/python3
+"""
+Represents a square with a given size.
+
+Attributes:
+    __size (int): The size of the square (private).
+"""
+
 """
 Represents a square with a given size.
 
@@ -54,7 +62,7 @@ class BaseGeometry(metaclass=BaseGeometryMeta):
             raise ValueError("{} must be greater than 0".format(name))
         else:
             return value
-        
+
 class Rectangle(BaseGeometry):
     """
     Represents a square with a given size.
