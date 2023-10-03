@@ -19,8 +19,8 @@ if __name__ == "__main__":
             user_id = response.json()["id"]
             print(f"{user_id}")
         else:
-            print(f"Error: {response.status_code}")
+            print("None")
 
     except requests.exceptions.RequestException as e:
         # Handle request exceptions
-        print("None")
+        print(f"Error: {e}")
