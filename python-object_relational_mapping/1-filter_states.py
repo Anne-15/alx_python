@@ -20,8 +20,9 @@ if __name__ == "__main__":
 
     try:
         # Execute the SQL query
-        cursor.execute("""SELECT * FROM states WHERE name LIKE \
-                        'N%' ORDER BY id COLLATE;""")
+        cursor.execute("""SELECT * FROM states WHERE name \
+                       COLLATE Latin1_General_CS \
+                       LIKE 'N%' ORDER BY id COLLATE;""")
 
         # Fetch all the rows
         rows = cursor.fetchall()
