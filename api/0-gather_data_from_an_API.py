@@ -1,26 +1,37 @@
+#!/usr/bin/python3
 """
-
-Function to get employee information using the id
+Returning value of todo items per user
 """
-
 import requests
 import sys
 
-if __name__=='__main__':
-    id = sys.argv[1]
-    user = f'https://jsonplaceholder.typicode.com/users/{id}'
-    user_data = requests.get(user)
-    users = user_data.json()
+if __name__=="__main__":
+    user_id = sys.argv[1]
 
-    todo = f'https://jsonplaceholder.typicode.com/users/{id}/todos'
-    todo_list = requests.get(todo)
-    todos = todo_list.json()
+    # getting user
+    user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)
+    user = requests.get(user_url)
+    user_data = user.json()
 
-    total_tasks = len(todos)
-    completed_tasks = sum(1 for task in todos if task['completed'])
+    # getting todos
+    todo_url = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(user_id)
+    todos = requests.get(todo_url)
+    todos_data = todos.json()
 
-    print(f'Employee {users["name"]} is done with tasks({completed_tasks}/{total_tasks})')
+    # all tasks
+    total_tasks = len(todos_data)
 
-    for item in todos:
-        if item['completed']:
-            print(f"\t{item['title']}")
+    count = 0
+    # completed tasks
+    for todo in todos_data:
+        if(todo['completed'] == True):
+            count += 1
+
+    print(f'Employee {user_data["name"]} is done with tasks({count}/{total_tasks}):')
+    
+    for tasks in todos_data:
+        if(tasks['completed']):
+            print(f"\t{tasks['title']}")
+    
+    
+            
