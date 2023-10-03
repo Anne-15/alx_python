@@ -18,7 +18,8 @@ db = MySQLdb.connect(
     )
 
 cur = db.cursor()
-cur.execute(""" SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id""")
+cur.execute(""" SELECT * FROM states WHERE name LIKE \
+             'N%' COLLATE Latin1_General_CS ORDER BY id""")
 states = cur.fetchall()
 for state in states:
     print(state)
