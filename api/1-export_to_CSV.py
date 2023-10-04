@@ -25,7 +25,7 @@ def main():
     # CSV file
     csv_file = f"{user_id}.csv"
     with open(csv_file, 'w', newline='') as csvfile:
-        csv_writer = csv.writer(csvfile)
+        csv_writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for task in todos_data:
             csv_writer.writerow(
                 [user_id, user_data['name'], task['completed'], task['title']])
