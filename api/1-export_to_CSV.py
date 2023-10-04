@@ -25,4 +25,4 @@ if __name__=="__main__":
     with open(csv_file, 'w') as csvfile:
         csv_writer = csv.writer(csvfile)
         for task in todos_data:
-            csv_writer.writerow([user_id, user_data['name'], task['completed'],task['title']])
+            csv_writer.writerow([user_id, str(user_data['name']), task['completed'],task['title']])
