@@ -18,7 +18,6 @@ if __name__ == '__main__':
     todo_url = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(user_id)
     todos = requests.get(todo_url)
     todos_data = todos.json()
-    print(todos_data)
 
     # exporting to a json
     json_file = "{}.json".format(user_id)
@@ -37,4 +36,4 @@ if __name__ == '__main__':
 
     # write data to json file
     with open(json_file, 'w') as json_files:
-        json.dump(user_info, json_files, indent=2)
+        json.dump(user_info, json_files)
