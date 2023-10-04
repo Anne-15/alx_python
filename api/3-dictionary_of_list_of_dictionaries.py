@@ -26,7 +26,7 @@ def employee_info():
         # exporting to a json
         user_info = [
                 {
-                    "username": user['name'],
+                    "username": user['username'],
                     "task": items['title'],
                     "completed": items['completed'],
                 }
@@ -40,8 +40,8 @@ def employee_info():
     json_file = "todo_all_employees.json"
 
     # write data to json file
-    with open(json_file, 'w', encoding='utf-8') as json_files:
-        json.dump(all_employees, json_files, indent=2)
+    with open(json_file, 'w') as json_files:
+        json.dump(all_employees, json_files)
 
     print(f"JSON file '{json_file}' created successfully.")
 
