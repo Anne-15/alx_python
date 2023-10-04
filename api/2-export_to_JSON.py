@@ -28,7 +28,7 @@ if __name__ == '__main__':
             {
                 "task": items['title'],
                 "completed": items['completed'],
-                "username": user_data['name'],
+                "username": user_data['username'],
             }
 
             for items in todos_data
