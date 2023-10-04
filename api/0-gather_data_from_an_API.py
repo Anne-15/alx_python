@@ -31,7 +31,5 @@ if __name__=="__main__":
     
     for tasks in todos_data:
         if(tasks['completed']):
-            print(f"\t{tasks['title']}")
-    
-    
+            print(f"\t {tasks['title']}")
             
