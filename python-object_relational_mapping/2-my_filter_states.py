@@ -19,7 +19,7 @@ db = MySQLdb.connect(
     )
 
 cur = db.cursor()
-cur.execute("""SELECT * FROM states WHERE name='{}' ORDER BY id"""
+cur.execute("""SELECT * FROM states WHERE name='{}' COLLATE utf8mb4_bin ORDER BY id"""
             .format(state_name_searched))
 states = cur.fetchall()
 for state in states:
