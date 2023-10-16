@@ -3,25 +3,23 @@
 Module containing the State class definition and Base instance
 """
 
+import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import Base, State
-import sys
+from model_state import Base, State  # Import your State and Base models from model_state
 
-if __name__ == "__main__":
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
+def print_states_with_a(username, password, db_name):
+    engine = create_engine(f'mysql+mysqldb://{username}:{password}@localhost:3306/{db_name}')
 
-    engine = create_engine("mysql://{} \
-                           :{}@localhost:3306/{}"
-                           .format(username, password, database))
-    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).order_by(State.id).first()
-    if states is None:
-        print("Nothing")
-    else:
-        print("{}: {}".format(states.id, states.name))
+    states_with_a = session.query(State).filter(State.name.like('%a%')).order_by(State.id).all()
+
+    for state in states_with_a:
+        print(f"{state.id}: {state.name}")
+
     session.close()
+
+if __name__ == "__main__":
+    username, password, db_name = sys.argv[1], sys.argv[2], sys.argv[3]
+    print_states_with_a(username, password, db_name)
