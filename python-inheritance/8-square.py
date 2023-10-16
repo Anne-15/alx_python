@@ -4,7 +4,7 @@ Represents a square with a given size.
 Attributes:
     __size (int): The size of the square (private).
 """
-import Rectangle from 7-        
+Rectangle =  __import__('7-rectangle.py').Rectangle
         
 class Square(Rectangle):
     """
