@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 """
 Represents a square with a given size.
 
