@@ -5,12 +5,6 @@ Attributes:
     __size (int): The size of the square (private).
 """
 BaseGeometry =  __import__('5-base_geometry.py').BaseGeometry
-"""
-Represents a square with a given size.
-
-Attributes:
-    __size (int): The size of the square (private).
-"""
 
 class Rectangle(BaseGeometry):
     """
