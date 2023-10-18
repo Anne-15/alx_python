@@ -1,11 +1,11 @@
-Rectangle =  __import__('7-rectangle.py').Rectangle
 """
 Represents a square with a given size.
 
 Attributes:
     __size (int): The size of the square (private).
 """
-        
+Rectangle = __import__('7-rectangle').Rectangle
+
 class Square(Rectangle):
     """
     Represents a square with a given size.
