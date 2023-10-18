@@ -4,7 +4,7 @@ Represents a square with a given size.
 Attributes:
     __size (int): The size of the square (private).
 """
-BaseGeometry =  __import__('5-base_geometry.py').BaseGeometry
+BaseGeometry = __import__('5-base_geometry').BaseGeometry
 
 class Rectangle(BaseGeometry):
     """
